@@ -1,3 +1,6 @@
+![](https://img.shields.io/badge/python-3.7.4-informational)
+![](https://img.shields.io/badge/vk__api-11.8.0-informational)
+
 # keywordsfounder
 Скрипт предназначен для поиска постов в группах Вконтакте, которые содержат определенные слова.
 
@@ -9,22 +12,12 @@
 не осуществляется, но возможна модификация скрипта для расширения соответствующего функционала.
 
 ## Развертывание приложения
-Версия интерпретатора, использованная при разработке - 3.7.4<br>
-Команды для развертывания (должен быть установлен python, pip и git), команды выполнять из под учетки с Административными
-привилегиями:
+Выполнять из терминала, запущенного из под администратора (должен быть установлен python, pip и git):
 ```
 git clone https://github.com/rsherstnev/keywordsfounder.git
 cd keywordsfounder
 python -m pip install --upgrade pip
-pip install pipenv
-pipenv --three
-pipenv shell
-pipenv sync
-exit
-```
-Запускать скрипт необходимо находясь в папке, в которой он расположен, c помощью pipenv run python:
-```
-pipenv run python keywordsfounder.py --login +79632286969 --password yourverysecurepassword --keywords-file ./keywords.txt --groups-file ./groups.txt -w result.txt
+pip install vk_api
 ```
 ## Описание опций скрипта
 Опция                | Обязательна ли | Описание
@@ -67,3 +60,8 @@ ctsv_sibsu
 ## Возможные улучшения скрипта
 - Возможно ускорить работу скрипта путем распараллеливания задач по нескольким потокам. Лучший вариант - по потоку на 
 каждую группу.
+
+## Примеры
+```
+keywordsfounder.py --login +79632286969 --password yourverysecurepassword --keywords-file ./keywords.txt --groups-file ./groups.txt -w result.txt 
+```

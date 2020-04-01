@@ -1,5 +1,6 @@
-import os
 import argparse
+from getpass import getpass
+import os
 import vk_api
 
 from vkgrabber import VKGrabber
@@ -38,7 +39,7 @@ def main():
                                'из под которой будут осуществляться запросы к API VK: ')
 
         if args.login is not None and args.password is None:
-            args.password = input('Введите пароль от учетной записи Вконтакте с логином ' + args.login + ": ")
+            args.password = getpass(prompt='Введите пароль от учетной записи Вконтакте с логином ' + args.login + ': ')
 
         keywords = []
         with open(args.keywords_file, 'r', encoding='utf-8') as file:
