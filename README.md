@@ -1,6 +1,3 @@
-![](https://img.shields.io/badge/python-3.7.4-informational)
-![](https://img.shields.io/badge/vk__api-11.8.0-informational)
-
 # keywordsfounder
 Скрипт предназначен для поиска постов в группах Вконтакте, которые содержат определенные слова.
 
