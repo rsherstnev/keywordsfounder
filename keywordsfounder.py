@@ -1,6 +1,7 @@
 import argparse
 from getpass import getpass
 import os
+import sys
 
 import vk_api
 
@@ -82,7 +83,7 @@ try:
             file = open(args.output_file, 'x', encoding='utf-8')
         except FileExistsError:
             while True:
-                challenge = input('Файл ' + file.name + ' уже существует, хотите переписать его? [Y/N] ')
+                challenge = input('Файл ' + file.name + ' уже существует, хотите переписать его? [Y/N] ').upper()
                 if challenge == 'Y' or challenge == 'N':
                     break
             if challenge == 'Y':
@@ -93,10 +94,7 @@ try:
     for group in groups:
         interesting_posts = grabber.get_interesting_posts_list(group)
         for interesting_post in interesting_posts:
-            if args.output_file:
-                print(interesting_post, file=file)
-            else:
-                print(interesting_post)
+            print(interesting_post, file=file if args.output_file else sys.stdout)
 
 except KeyboardInterrupt:
     pass
