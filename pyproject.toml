@@ -1,0 +1,22 @@
+[project]
+name = "keywordsfounder"
+version = "1.0.0"
+description = "Инструмент для поиска постов в группах ВКонтакте по ключевым словам"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "vk-api>=11.10.0",
+]
+
+[project.scripts]
+keywordsfounder = "keywordsfounder:main"
+
+[dependency-groups]
+dev = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
